@@ -1,0 +1,22 @@
+<mat-divider></mat-divider>
+<mat-card>
+  <mat-card-title
+    [ngStyle]="{ textAlign: 'center', paddingBottom: '10px', fontSize: '30px' }"
+  >
+    <span class="underline--magical">Vegimite Toast</span></mat-card-title
+  ><br />
+
+  <mat-card-subtitle
+    [ngStyle]="{ paddingLeft: '10px', fontSize: '16px', color: 'black' }"
+    ><li
+      [ngStyle]="{ paddingLeft: '10px', fontSize: '16px' }"
+      *ngFor="let item of recipeList"
+    >
+      {{ item }}
+    </li></mat-card-subtitle
+  >
+
+  <mat-card-content [ngStyle]="{ paddingLeft: '10px', fontSize: '16px' }">{{
+    recipeDetail
+  }}</mat-card-content>
+</mat-card>

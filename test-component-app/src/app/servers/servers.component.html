@@ -1,0 +1,43 @@
+<h3>Server Name</h3>
+<!-- $event can be used to pass data to the method we are calling using the event binding -->
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+
+<!-- 2 way data-binding using ngModule - changes the variable name at same time -->
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+
+<p>{{ serverName }}</p>
+<!-- can use property binding to bind a property to element -->
+<!-- Use [] around attribute on the html element, disabled below for example -->
+<button
+  class="btn btn-primary"
+  [disabled]="disallowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button>
+
+<br /><br />
+<!-- Can use property binding on the innerText attribute of an elment as well -->
+<!-- <p [innerText]="disallowNewServer"></p> -->
+
+<!-- *ngIf - needs a star at the start as it a structural directive (changes the DOM) -->
+<!-- Can also setup the *ngIf with an else statement in it and display another element instead -->
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}<br /></p>
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+<!-- 2 way data-binding using ngModule - changes the variable name at same time -->
+<h3>Username</h3>
+<input type="text" class="form-control" [(ngModel)]="username" />
+<button
+  class="btn btn-primary"
+  (click)="removeName()"
+  [disabled]="checkValidName()"
+>
+  Remove Name
+</button>
+
+<p>Inputted name is: {{ username }}</p>

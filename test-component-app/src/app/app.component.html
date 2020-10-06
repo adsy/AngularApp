@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Test Application</h2>
+  <hr />
+  <!-- <app-servers></app-servers>
+  <br />
+  <WarningComponent></WarningComponent>
+  <SuccessComponent></SuccessComponent> -->
+
+  <!-- <button class="btn btn-primary" (click)="pVisible = !pVisible">
+    Toggle Paragraph
+  </button> -->
+
+  <!-- Code below is Assignment 3 - create a button which toggles a message -->
+  <!-- and also log a number everytime it is clicked.  -->
+  <!-- Change the CSS when the log number is 5 and above. -->
+  <!-- Can use 'let i = index' in ngFor to grab index and use that with other directives -->
+
+  <button class="btn btn-primary" (click)="onDisplay()">
+    Toggle Paragraph
+  </button>
+  <p class="secret-paragraph" *ngIf="pVisible">This is the secret paragaph</p>
+  <div *ngFor="let item of log; let i = index" [ngClass]="{ logStyle: i >= 5 }">
+    {{ i }}
+    {{ item }}
+  </div>
+</div>

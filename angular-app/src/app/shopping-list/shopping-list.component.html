@@ -1,0 +1,30 @@
+<mat-divider></mat-divider>
+<mat-card>
+  <mat-card-title
+    [ngStyle]="{ textAlign: 'center', paddingBottom: '10px', fontSize: '30px' }"
+  >
+    <span class="underline--magical">Shopping List</span></mat-card-title
+  >
+  <li
+    [ngStyle]="{ paddingLeft: '10px', fontSize: '16px', paddingBottom: '20px' }"
+    *ngFor="let item of shoppingList; let i = index"
+  >
+    {{ item }}
+    <span
+      ><button
+        (click)="removeItem(i)"
+        [ngStyle]="{ float: 'right' }"
+        class="btn btn-sm btn-danger"
+      >
+        Remove
+      </button></span
+    >
+    <br />
+  </li>
+</mat-card>
+<br />
+<label [ngStyle]="{ fontSize: '16px' }">Add Ingredient </label>
+<input type="text" class="form-control" [(ngModel)]="item" />
+<br />
+<button class="btn btn-primary" (click)="addItem(item)">Add Item</button>
+<br /><br />
