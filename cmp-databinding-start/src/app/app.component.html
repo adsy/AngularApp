@@ -1,0 +1,38 @@
+<div class="container">
+  <app-cockpit
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeClick()">
+        Change First Element
+      </button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">
+        Destory First Component
+      </button>
+
+      <!-- The element below has the element and name property passed into it from this parent component -->
+      <!-- so the data can be used in the component. -->
+
+      <!-- Since the name property is 'hooked' into the child component and attached to the property in  -->
+      <!-- this parent component, it is changed in both by an event. -->
+      <app-server-element
+        *ngFor="let server of serverElements"
+        [element]="server"
+        [name]="server.name"
+      >
+        <!-- This code is by default useless when placed here - it is passed into the app-server-element -->
+        <!-- component however by using the ng-content element in the app-server-element html template -->
+        <p #contentParagraph>
+          <strong *ngIf="server.type === 'server'" style="color: red">{{
+            server.content
+          }}</strong>
+          <em *ngIf="server.type === 'blueprint'">{{ server.content }}</em>
+        </p></app-server-element
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.holder {
+  max-width: 500px;
+  min-width: 400px;
+  margin: auto;
+  width: 50%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.labelHeader {
+  font-size: 16px;
+  font-weight: bold;
+}

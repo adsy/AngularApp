@@ -10,6 +10,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -17,6 +22,10 @@ import { MatDividerModule } from '@angular/material/divider';
     HeaderComponent,
     ShoppingListComponent,
     RecipeBookComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +34,7 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserAnimationsModule,
     MatCardModule,
     MatDividerModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

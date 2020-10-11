@@ -1,0 +1,16 @@
+<div class="container">
+  <!-- We can listen for the 'intervalFired' event happening in the app-game-control component and call -->
+  <!-- the OnIntervalFired function and pass the event in to the app-component typescript file. -->
+  <!-- The event in this case is a 'number' which is defined in the app-game-control typescript file.-->
+  <app-game-control
+    (intervalFired)="OnIntervalFired($event)"
+  ></app-game-control>
+  <div class="row">
+    <div class="col-lg-6">
+      <app-even *ngFor="let number of evenNumbers" [number]="number"></app-even>
+    </div>
+    <div class="col-lg-6">
+      <app-odd *ngFor="let number of oddNumbers" [number]="number"></app-odd>
+    </div>
+  </div>
+</div>

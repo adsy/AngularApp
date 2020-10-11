@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="card holder">
+    <br />
+    <label for="minutes" class=""
+      ><span class="labelHeader">MINUTES</span></label
+    >
+    <input type="number" class="form-control" #minuteInput />
+    <br />
+    <label for="minutes" class="cotainer-label"
+      ><span class="labelHeader">SPEED</span></label
+    >
+    <input type="number" class="form-control" #speedInput />
+    <br />
+    <button class="btn btn-success" (click)="calculateSpeed()">
+      Calculate
+    </button>
+    <br /><span class="labelHeader">Total Minutes: {{ time }}</span>
+    <br />
+  </div>
+</div>

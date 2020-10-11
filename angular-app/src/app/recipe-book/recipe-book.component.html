@@ -1,22 +1,27 @@
-<mat-divider></mat-divider>
-<mat-card>
-  <mat-card-title
-    [ngStyle]="{ textAlign: 'center', paddingBottom: '10px', fontSize: '30px' }"
-  >
-    <span class="underline--magical">Vegimite Toast</span></mat-card-title
-  ><br />
-
-  <mat-card-subtitle
-    [ngStyle]="{ paddingLeft: '10px', fontSize: '16px', color: 'black' }"
-    ><li
-      [ngStyle]="{ paddingLeft: '10px', fontSize: '16px' }"
-      *ngFor="let item of recipeList"
+<div class="row">
+  <div class="col-md-5">
+    <!-- Assiging the selectedRecipe variable to the $event value containing the recipe passed on by the 
+    child component -->
+    <app-recipe-list
+      (recipeSelected)="selectedRecipe = $event"
+    ></app-recipe-list>
+  </div>
+  <!-- app-recipe-detail component is only shown if the selectedRecipe value in the current component is 
+  set. If it is not set, show the ng-template 'infoText' instead prompting the user to click a recipe. -->
+  <!-- The selectedRecipe value is then stored in the recipe value within the app-recipe-detail component so 
+  its value can be used. -->
+  <div class="col-md-7">
+    <app-recipe-detail
+      *ngIf="selectedRecipe; else infoText"
+      [recipe]="selectedRecipe"
     >
-      {{ item }}
-    </li></mat-card-subtitle
-  >
-
-  <mat-card-content [ngStyle]="{ paddingLeft: '10px', fontSize: '16px' }">{{
-    recipeDetail
-  }}</mat-card-content>
-</mat-card>
+    </app-recipe-detail>
+    <ng-template #infoText
+      ><mat-card
+        ><h1 style="text-align: center">
+          Select a recipe to show its information.
+        </h1></mat-card
+      ></ng-template
+    >
+  </div>
+</div>

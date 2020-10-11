@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <!-- div element below is using the property from the element in the typescript code -->
+  <!-- <div class="panel-heading">{{ element.name }}</div> -->
+
+  <!-- div below is using the property from the element in typescript code but is example of hook -->
+  <div class="panel-heading">{{ name }}</div>
+
+  <div class="panel-body">
+    <!-- Using the ng-content element allows us to use a 'placeholder' for code  -->
+    <!-- that is placed between this components declaration on the parent component html template -->
+    <ng-content></ng-content>
+  </div>
+</div>

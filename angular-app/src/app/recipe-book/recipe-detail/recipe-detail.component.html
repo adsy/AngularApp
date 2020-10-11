@@ -1,0 +1,41 @@
+<mat-card [ngStyle]="{ textAlign: 'center' }">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 style="font-size: 42px">{{ recipe.name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img
+        class="img-responsive"
+        src="{{ recipe.imagePath }}"
+        alt="{{ recipe.name }}"
+        style="max-height: 150px; margin-left: auto; margin-right: auto"
+      />
+    </div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle">
+          Manage Recipe
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Add Ingredients</a></li>
+          <li><a href="#">Edit List</a></li>
+          <li><a href="#">Delete Recipe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>{{ recipe.description }}</h3>
+    </div>
+  </div>
+  <div class="row"><div class="col-xs-12">Ingredients</div></div>
+</mat-card>
+<br />

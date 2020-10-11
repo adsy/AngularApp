@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+
+    <label>Server Name</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName" /> -->
+    <!-- We can use the # with a name to create a local reference in a template for inputs -->
+    <!-- and pass this into a function in the template -->
+    <!-- This will pass the whole html element into another variable -->
+    <input type="text" class="form-control" #serverNameInput />
+
+    <label>Server Content</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent" /> -->
+    <!-- We can use the # with a name to create a local reference in a template for inputs -->
+    <!-- and pass this into a function in the template -->
+    <input type="text" class="form-control" #serverContentInput />
+
+    <br />
+    <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
+      Add Server
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="onAddBlueprint(serverNameInput, serverContentInput)"
+    >
+      Add Server Blueprint
+    </button>
+  </div>
+</div>

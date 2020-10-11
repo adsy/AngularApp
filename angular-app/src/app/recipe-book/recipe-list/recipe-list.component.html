@@ -1,0 +1,21 @@
+<mat-card
+  ><div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" style="width: 100%">Add Recipe</button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- The component below is duplicated by the amount of recipes stored in the recipe-list array. -->
+      <!-- It is then assigned that particular 'recipe' to the recipe value stored in the app-recipe-item component. -->
+      <!-- The recipeSelected event listener is also added so we can listen for the event emitted within 
+      the component and we can pass that particular 'recipe' to the function we define in this component. -->
+      <app-recipe-item
+        *ngFor="let recipe of recipes"
+        [recipe]="recipe"
+        (recipeSelected)="selectedRecipe(recipe)"
+      ></app-recipe-item>
+    </div>
+  </div>
+</mat-card>
