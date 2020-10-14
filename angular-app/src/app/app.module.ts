@@ -15,6 +15,7 @@ import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {dropdownDirective} from './shared/dropdown.directive'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
-    ShoppingEditComponent,
+    ShoppingEditComponent, dropdownDirective
+    
   ],
   imports: [
     BrowserModule,
