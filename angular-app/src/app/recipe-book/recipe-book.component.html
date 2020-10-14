@@ -2,9 +2,7 @@
   <div class="col-md-5">
     <!-- Assiging the selectedRecipe variable to the $event value containing the recipe passed on by the 
     child component -->
-    <app-recipe-list
-      (recipeSelected)="selectedRecipe = $event"
-    ></app-recipe-list>
+    <app-recipe-list></app-recipe-list>
   </div>
   <!-- app-recipe-detail component is only shown if the selectedRecipe value in the current component is 
   set. If it is not set, show the ng-template 'infoText' instead prompting the user to click a recipe. -->

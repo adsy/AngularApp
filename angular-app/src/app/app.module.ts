@@ -16,6 +16,7 @@ import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recip
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {dropdownDirective} from './shared/dropdown.directive'
+import { ShoppingListService } from './shopping-list/shoppinglistService.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {dropdownDirective} from './shared/dropdown.directive'
     MatDividerModule,
     MDBBootstrapModule.forRoot(),
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
