@@ -19,13 +19,13 @@
   <div class="row">
     <div class="col-xs-12">
       <div appDropdown class='btn-group'>
-        <button type="button" class="btn btn-primary dropdown-toggle">
+        <button type="button" class="btn btn-purple text-white dropdown-toggle">
           Manage Recipe
         </button>
-        <ul class="dropdown-menu">
-          <li><a href="#" (click)="sendIngredients()">Send to Shopping List</a></li>
-          <li><a href="#">Edit List</a></li>
-          <li><a href="#">Delete Recipe</a></li>
+        <ul style="cursor:pointer" class="dropdown-menu">
+          <li><a (click)="sendIngredients()">Send to Shopping List</a></li>
+          <li><a [routerLink]="['edit']">Edit List</a></li>
+          <li><a>Delete Recipe</a></li>
         </ul>
       </div>
     </div>

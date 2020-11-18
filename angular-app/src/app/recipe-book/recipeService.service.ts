@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shoppinglistService.service';
 import { Recipe } from './recipe.model';
@@ -23,7 +24,6 @@ export class RecipeService {
         ),
       ];
 
-      recipeSelected = new EventEmitter<Recipe>();
 
       addIngredientsToSL(ingredients:ingredient[]){
         this.slService.changeIngredients(ingredients);
@@ -33,5 +33,9 @@ export class RecipeService {
           // calling slice will return a copy of the recipe array to work with the private value
           // returning the array from the service will return the actual location and allow manipulation of the private variable.
           return this.recipes.slice();
+      }
+
+      getRecipe(id:number){
+        return this.recipes.slice()[id];
       }
 }

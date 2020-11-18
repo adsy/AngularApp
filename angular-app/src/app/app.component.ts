@@ -6,15 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
   providers:[]
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
 
-
-  ngOnInit(){
-  }
-  
-  pageSelected: string = 'recipe';
-
-  onNavigate(page: string) {
-    this.pageSelected = page;
-  }
 }

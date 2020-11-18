@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- The (ngSubmit)="onSubmit(f)" #f="ngForm" approach can be used to submit a form to the component typescript file which we can then maniuplate -->
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <!-- Can create a new group for the form which groups the username and email together as 'userData' -->
+        <!-- We can also add ngModelGroup to the #userData local reference so we can access the javascript object -->
+        <div 
+        id="user-data" 
+        ngModelGroup="userData"
+        #userData="ngModelGroup">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <!-- Added ngModel without paranthesis or brackets to let angular know its a control of the form using the FormsModule -->
+            <!-- name attribute can be used to register the name of the input in the form -->
+            <!-- Can add required attribute to element and it will automatically configure form to make sure it is treated as invalid if it is empty -->
+            <input 
+            type="text" 
+            id="username" 
+            class="form-control"
+            ngModel
+            name="username"
+            required
+            #username="ngModel">
+            <span class='help-block' *ngIf="!username.valid && username.touched">Please enter a valid username </span>
+          </div>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <!-- Added ngModel without paranthesis or brackets to let angular know its a control of the form using the FormsModule -->
+            <!-- name attribute can be used to register the name of the input in the form -->
+            <!-- Can add required attribute to element and it will automatically configure form to make sure it is treated as invalid if it is empty -->
+            <!-- Can add email directive from angular which makes sure its a valid email address -->
+            <input 
+            type="email" 
+            id="email" 
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel">
+            <span class='help-block' *ngIf="!email.valid && email.touched">Please enter a valid email </span>
+          </div>
+        </div>
+
+        <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
+        <div class="form-group">
+          <label for="secret">Secret Questions</label>
+            <!-- Added ngModel without paranthesis or brackets to let angular know its a control of the form using the FormsModule -->
+            <!-- name attribute can be used to register the name of the input in the form -->
+          <select 
+          id="secret" 
+          class="form-control"
+          [ngModel]="defaultQuestion"
+          name="secret">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea 
+          id="" 
+          cols="" 
+          rows="3" 
+          name="questionAnswer" 
+          class="form-control"
+          [(ngModel)]="answer"></textarea>
+        </div>
+        <p> Your Answer : {{answer}}</p>
+
+        <div class="radio" *ngFor="let gender of genders">
+          <label for="">
+            <input 
+            type="radio"
+            name="gender"
+            [ngModel]="defaultGender"
+            [value]="gender"
+            >
+            {{gender}}
+          </label>
+        </div>
+
+        <button 
+        class="btn btn-primary" 
+        type="submit"
+        [disabled]="!f.valid">Submit</button>
+      </form>
+      <hr>
+      <div class="row" *ngIf="submitted">
+        <div class="col-xs-12">
+          <h3>Your Data: </h3>
+          <p>Username: {{user.username}}</p>
+          <p>Email: {{user.email}}</p>
+          <p>Secret Question: {{user.secretQuestion}}</p>
+          <p>Answer: {{user.answer}}</p>
+          <p>Gender: {{user.gender}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

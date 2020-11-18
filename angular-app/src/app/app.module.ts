@@ -17,6 +17,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {dropdownDirective} from './shared/dropdown.directive'
 import { ShoppingListService } from './shopping-list/shoppinglistService.service';
+import { AppRoutingModule } from './app-routing-module';
+import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,10 @@ import { ShoppingListService } from './shopping-list/shoppinglistService.service
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
-    ShoppingEditComponent, dropdownDirective
-    
+    ShoppingEditComponent, 
+    dropdownDirective, 
+    RecipeStartComponent, 
+    RecipeEditComponent,    
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { ShoppingListService } from './shopping-list/shoppinglistService.service
     MatCardModule,
     MatDividerModule,
     MDBBootstrapModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent],

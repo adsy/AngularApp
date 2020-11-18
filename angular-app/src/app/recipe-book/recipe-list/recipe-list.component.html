@@ -1,7 +1,7 @@
 <mat-card
   ><div class="row">
     <div class="col-xs-12">
-      <button class="btn btn-success" style="width: 100%">Add Recipe</button>
+      <button class="btn btn-success" style="width: 100%" (click)="onClick()">Add Recipe</button>
     </div>
   </div>
   <hr />
@@ -12,8 +12,9 @@
       <!-- The recipeSelected event listener is also added so we can listen for the event emitted within 
       the component and we can pass that particular 'recipe' to the function we define in this component. -->
       <app-recipe-item
-        *ngFor="let recipe of recipes"
+        *ngFor="let recipe of recipes; let i = index"
         [recipe]="recipe"
+        [index]="i"
       ></app-recipe-item>
     </div>
   </div>

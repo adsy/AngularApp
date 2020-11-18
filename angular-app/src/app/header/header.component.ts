@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,15 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  collapsed = true;
-
-  @Output() featureSelected = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onSelect(page: string) {
-    this.featureSelected.emit(page);
-  }
 }

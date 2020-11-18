@@ -9,17 +9,6 @@
   <!-- The selectedRecipe value is then stored in the recipe value within the app-recipe-detail component so 
   its value can be used. -->
   <div class="col-md-7">
-    <app-recipe-detail
-      *ngIf="selectedRecipe; else infoText"
-      [recipe]="selectedRecipe"
-    >
-    </app-recipe-detail>
-    <ng-template #infoText
-      ><mat-card
-        ><h1 style="text-align: center">
-          Select a recipe to show its information.
-        </h1></mat-card
-      ></ng-template
-    >
+    <router-outlet></router-outlet>
   </div>
 </div>

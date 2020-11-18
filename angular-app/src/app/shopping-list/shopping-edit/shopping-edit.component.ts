@@ -24,7 +24,10 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit(): void {}
 
   addIngredient() {
-    this.shoppingListService.addIngredient(this.nameInput.nativeElement.value,this.amountInput.nativeElement.value)
+    if(this.nameInput.nativeElement.value && this.amountInput.nativeElement.value)
+    {
+      this.shoppingListService.addIngredient(this.nameInput.nativeElement.value,this.amountInput.nativeElement.value)
+    }
   }
 
   clearList() {

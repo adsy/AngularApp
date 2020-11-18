@@ -10,15 +10,8 @@ import { RecipeService } from './recipeService.service';
 })
 export class RecipeBookComponent implements OnInit {
 
-  selectedRecipe: Recipe;
-
-  constructor(private recipeService:RecipeService) {
+  constructor() {
   }
-
-  // Using the recipeService we can listen to the recipeSelected event which is emitted in the recipe-item component.
-  // When we hear a value which is emitted, we can grab it and assign it to the selectedRecipe value which is passed
-  // to the recipe-detail component.
   ngOnInit(): void {
-    this.recipeService.recipeSelected.subscribe((recipe:Recipe)=>this.selectedRecipe=recipe)
   }
 }
