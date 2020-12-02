@@ -1,0 +1,9 @@
+.btnColour {
+  background-color: rgba(244, 67, 54, 0.7);
+  border: 2px solid rgba(244, 67, 54, 0.7);
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 2px solid red;
+}

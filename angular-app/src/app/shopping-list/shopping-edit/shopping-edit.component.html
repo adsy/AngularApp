@@ -1,11 +1,17 @@
 <mat-card
   ><div class="row">
     <div class="col-xs-12">
-      <form>
+      <form [formGroup]="ingredientForm" (ngSubmit)="addIngredient()">
         <div class="row">
           <div class="col-sm-5 form-group">
             <label for="name">Name </label
-            ><input type="text" id="name" class="form-control" #nameInput />
+            ><input 
+            type="text" 
+            id="name" 
+            class="form-control" 
+            formControlName="name"
+            required
+            />
           </div>
           <div class="col-sm-2 form-group">
             <label for="amount">Amount</label>
@@ -13,7 +19,9 @@
               type="number"
               id="amount"
               class="form-control"
-              #amountInput
+              formControlName="amount"
+              required
+              [pattern]="'^[1-9]+[0-9]*$'"
             />
           </div>
         </div>
@@ -23,12 +31,12 @@
               class="btn btn-success"
               type="submit"
               style="margin-right: 5px"
-              (click)="addIngredient()"
+              [ngClass]="{'disabled': !ingredientForm.valid}"
             >
-              Add
+              {{editMode ? 'Update' : 'Add'}}
             </button>
-            <button class="btn btn-primary" type="button" (click)="clearList()">
-              Clear
+            <button  class="btn btn-primary" type="button" (click)="clearList()">
+              Clear Shopping List
             </button>
           </div>
         </div>

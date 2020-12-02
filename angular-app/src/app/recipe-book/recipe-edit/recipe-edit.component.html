@@ -1,5 +1,132 @@
-<mat-card>
-    <form>
-        test
-    </form>
-</mat-card>
+<div class="row">
+  <div class="col-xs-12">
+    <mat-card>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div
+            class="col-xs-6"
+            style="display: flex; justify-content: flex-end"
+          >
+            <h1 *ngIf="editMode">Edit Recipe</h1>
+            <h1 *ngIf="!editMode">Add Recipe</h1>
+          </div>
+          <div
+            class="col-xs-4"
+            style="display: flex; justify-content: flex-end; height: 35px"
+          >
+            <button
+              class="btn btn-success"
+              style="margin-right: 10px; margin-left: 10px"
+              type="submit"
+              [ngClass]="{ disabled: !editForm.valid }"
+            >
+              Save
+            </button>
+            <button class="btn btn-danger" type="button" (click)="cancelEdit()">
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="name"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Image URL</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imagePath"
+                formControlName="imagePath"
+                #imagePath
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <img
+              [src]="imagePath.value"
+              alt=""
+              style="max-width: 200px; padding-bottom: 20px"
+              class="img-responsive"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Description</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="Description"
+                rows="6"
+                formControlName="description"
+              >
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12" formArrayName="ingredients">
+            <h2 style="display: flex; justify-content: center">Ingredients</h2>
+
+            <div
+              class="row"
+              *ngFor="let ingredientCtrl of controls; let i = index"
+              [formGroupName]="i"
+              style="margin-bottom: 10px"
+            >
+              <div class="col-xs-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                />
+              </div>
+              <div class="col-xs-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="amount"
+                />
+              </div>
+              <div class="col-xs-2">
+                <button
+                  class="btn btn-danger form-control"
+                  (click)="removeIngredient(i)"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button
+                  class="btn btn-success form-control btnColour"
+                  type="button"
+                  (click)="addIngredient()"
+                >
+                  Add Ingredient
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
