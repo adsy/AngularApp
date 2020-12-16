@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
@@ -21,6 +21,7 @@ import { AppRoutingModule } from "./app-routing-module";
 import { RecipeStartComponent } from "./recipe-book/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipe-book/recipe-edit/recipe-edit.component";
 import { RecipeService } from "./recipe-book/recipeService.service";
+import { AuthComponent } from "./auth/auth.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RecipeService } from "./recipe-book/recipeService.service";
     dropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { RecipeService } from "./recipe-book/recipeService.service";
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     MatCardModule,
+    HttpClientModule,
   ],
   // Adding the services here makes sure one instance of these services is created and is provided across the whole app
   providers: [ShoppingListService, RecipeService],
