@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
@@ -22,6 +22,10 @@ import { RecipeStartComponent } from "./recipe-book/recipe-start/recipe-start.co
 import { RecipeEditComponent } from "./recipe-book/recipe-edit/recipe-edit.component";
 import { RecipeService } from "./recipe-book/recipeService.service";
 import { AuthComponent } from "./auth/auth.component";
+import { LoadingSpinnerComponent } from "./shared/loadingSpinner/loadingSpinner.component";
+import { AuthInterceptorService } from "./auth/auth-interceptor.service";
+import { AlertComponent } from "./shared/alert/alert.component";
+import { PlaceholderDirective } from "./shared/placeholder/placeholder.directive";
 
 @NgModule({
   declarations: [
@@ -37,6 +41,9 @@ import { AuthComponent } from "./auth/auth.component";
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
+    LoadingSpinnerComponent,
+    AlertComponent,
+    PlaceholderDirective,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,15 @@ import { AuthComponent } from "./auth/auth.component";
     HttpClientModule,
   ],
   // Adding the services here makes sure one instance of these services is created and is provided across the whole app
-  providers: [ShoppingListService, RecipeService],
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
